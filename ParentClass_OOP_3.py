@@ -3,11 +3,12 @@ class AllStaff:     # The syperclass (parent class) covering universal attribute
         self.name = name
         self.age = age
         self.emp_id = emp_id
-        self.brithdate = brith_date
+        self.birthdate = brith_date
         self.job_title = job_title
 
     def show(self):
         print(f"{self.emp_id} is {self.name} aged {self.age} being born {self.birthdate} employed as a {self.job_title}")
+
 
 # Child classes contain attribute unique to that class
 class Management(AllStaff):
@@ -19,14 +20,15 @@ class Management(AllStaff):
         print(f"{self.emp_id} is {self.age} being born {self.birthdate} employed as {self.job_title} and "
               f"drives a {self.car}")
 
+
 class Clerical(AllStaff):
         def __init__(self, name, age, emp_id, birthdate, job_title, typing_speed): # Add unique attribute typing speed
             super().__init__(name, age, emp_id, birthdate, job_title,)
             self.typing_speed = typing_speed
 
-    def show(self):
-        print(f"{self.emp_id} is {self.age} being born {self.birthdate} employed as {self.job_title} and "
-              f"types at {self.typing_speed} words per minute")
+        def show(self):
+            print(f"{self.emp_id} is {self.age} being born {self.birthdate} employed as {self.job_title} and "
+                  f"types at {self.typing_speed} words per minute")
 
 
 class Factory(AllStaff):
