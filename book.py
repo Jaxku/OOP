@@ -23,6 +23,27 @@ def print_info():
     for book in book_list:
         book.book_details()
 
+
+class user:
+    def __init__(self, name, address):
+        self.name = name    # String
+        self.address = address  # String
+        self.fees = 0.00  # Float
+        self.borrowed_books = []  # List
+        user_list.append(self)  # Holds user objects as created - main routine
+
+    def user_details(self):
+        print("Name: ", self.name)
+        print("Address: ", self.address)
+        print("Fees $", self.fees)
+        print("#########################")
+
+
+# Print list of users
+def print_user():
+    for user in user_list:
+        user.user_details()
+
 #  Main routine
 book_list = []
 
