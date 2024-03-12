@@ -125,6 +125,23 @@ def return_book():
             print(f"Sorry, {user.name} does not have {book.title}")
 
 
+#  Main routine
+book_list = []
+user_list = []
+
+# Create book objects
+Book("Lord of the Rings", "J.R.R.Tolkien", "TOL", "9780261103252")
+Book("The Hunger Games", "Suzanne Collins", "COL", "9781407132082")
+Book("A Tale of Two Cities", "Charles Dickens", "DIC", "9781853262647")
+Book("Harry Potter", "J.K.Rowling", "ROW", "9780439321624")
+
+# Create objects - Books
+User("John", "12 Example St")
+User("Susan", "1011 Binary Rd")
+User("Paul", "25 Appletree Dr")
+User("Mary", "8 Moon Cres")
+
+
 # User menu
 new_action = True
 while new_action:
@@ -148,32 +165,3 @@ while new_action:
         new_action = False
     else:
         print("\n*** That was not a valid choice ***\n")
-
-
-#  Main routine
-book_list = []
-user_list = []
-
-# Create book objects
-Book("Lord of the Rings", "J.R.R.Tolkien", "TOL", "9780261103252")
-Book("The Hunger Games", "Suzanne Collins", "COL", "9781407132082")
-Book("A Tale of Two Cities", "Charles Dickens", "DIC", "9781853262647")
-Book("Harry Potter", "J.K.Rowling", "ROW", "9780439321624")
-
-# Create objects - Books
-User("John", "12 Example St")
-User("Susan", "1011 Binary Rd")
-User("Paul", "25 Appletree Dr")
-User("Mary", "8 Moon Cres")
-
-
-lend_book()
-print("\n####################\n")
-return_book()
-
-
-#find_book()
-# add_book()
-# print_info()
-# add_user()
-# print_user()
