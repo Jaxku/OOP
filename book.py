@@ -1,9 +1,9 @@
 class Book:
     def __init__(self, title, author, dewey, isbn):
-        self.title = title.title()   # String with capitalised first letter
-        self.author = author        # String
-        self.dewey = dewey          # String
-        self.isbn = isbn            # String
+        self.title = title.title()  # String with capitalised first letter
+        self.author = author  # String
+        self.dewey = dewey  # String
+        self.isbn = isbn  # String
         self.available = True
         self.borrower = None
         book_list.append(self)  # Holds book objects as created - main routine
@@ -26,7 +26,7 @@ def print_info():
 
 class User:
     def __init__(self, name, address):
-        self.name = name    # String
+        self.name = name  # String
         self.address = address  # String
         self.fees = 0.00  # Float
         self.borrowed_books = []  # List
@@ -50,7 +50,7 @@ def add_user():
     name = input("Enter the new user's name: ").title()
     address = input("Enter the new user's address: ")
     User(name, address)
-    print(name, address,"Has been added to the user list")
+    print(name, address, "Has been added to the user list")
 
 
 # ADd a new book
@@ -73,6 +73,38 @@ def find_user():
     print("Sorry, no user was found with that name")
     return None
 
+
+# Find a book
+def find_book():
+    book_to_find = input("Enter the book's title: ").title()
+    for book in book_list:
+        if book.title == book_to_find:
+            print(f"The book '{book_to_find}' is available")
+            return book
+    print("Sorry, no book was found with that title")
+    find_book()
+
+
+# Lending a book
+def lend_book():
+    user = find_user()
+    print()
+    if user:  # Only if user was found
+        book = find_book()  # making sure the book exists
+        if book.available:  # and is available
+            if book.available:  # and is available
+                confrim = input("Type 'Y' if you want to borrow this "
+                                "book:  ").upper()  # User confirms
+                if confrim == "Y":
+                    print("Book title: '{book.title}' is out now on"
+                          f"loan to {user.name}")   # User name
+                    book.available = False  # Book is no longer available
+                    book.borrower = user.name
+                    user.borrowed_books.append(book.title)
+            else:
+                print(f"Sorry, {book.title} is not available/or on loan")
+
+                    RETURN A BOOK REUTRN A BOOK TRRR
 #  Main routine
 book_list = []
 user_list = []
@@ -89,12 +121,8 @@ User("Susan", "1011 Binary Rd")
 User("Paul", "25 Appletree Dr")
 User("Mary", "8 Moon Cres")
 
-add_book()
-print_info()
+find_book()
+# add_book()
+# print_info()
 # add_user()
 # print_user()
-
-
-
-
-
