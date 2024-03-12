@@ -24,7 +24,7 @@ def print_info():
         book.book_details()
 
 
-class user:
+class User:
     def __init__(self, name, address):
         self.name = name    # String
         self.address = address  # String
@@ -44,8 +44,38 @@ def print_user():
     for user in user_list:
         user.user_details()
 
+
+# Add a new library user
+def add_user():
+    name = input("Enter the new user's name: ").title()
+    address = input("Enter the new user's address: ")
+    User(name, address)
+    print(name, address,"Has been added to the user list")
+
+
+# ADd a new book
+def add_book():
+    title = input("Enter the new book's title: ").title()
+    author = input("Enter the new book's author: ").title()
+    dewey = input("Enter the new book's dewey: ").upper()
+    isbn = input("Enter the new book's isbn: ")
+    Book(title, author, dewey, isbn)
+    print(title, author, "Has been added to the book list")
+
+
+# Find a user
+def find_user():
+    user_to_find = input("Enter the user's name: ").title()
+    for user in user_list:
+        if user.name == user_to_find:
+            print(f"Hi {user_to_find}")
+            return user
+    print("Sorry, no user was found with that name")
+    return None
+
 #  Main routine
 book_list = []
+user_list = []
 
 # Create book objects
 Book("Lord of the Rings", "J.R.R.Tolkien", "TOL", "9780261103252")
@@ -53,7 +83,17 @@ Book("The Hunger Games", "Suzanne Collins", "COL", "9781407132082")
 Book("A Tale of Two Cities", "Charles Dickens", "DIC", "9781853262647")
 Book("Harry Potter", "J.K.Rowling", "ROW", "9780439321624")
 
+# Create objects - Books
+User("John", "12 Example St")
+User("Susan", "1011 Binary Rd")
+User("Paul", "25 Appletree Dr")
+User("Mary", "8 Moon Cres")
+
+add_book()
 print_info()
+# add_user()
+# print_user()
+
 
 
 
