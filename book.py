@@ -104,7 +104,52 @@ def lend_book():
             else:
                 print(f"Sorry, {book.title} is not available/or on loan")
 
-                    RETURN A BOOK REUTRN A BOOK TRRR
+
+# Return a book
+def return_book():
+    user = find_user()
+    print()
+    if user:
+        book = find_book()
+        if book.title in user.borrowed_books:
+            confrim = input("Type 'Y' if you want to "
+                            "return this book:  ").upper()
+            if confrim == "Y":
+                print(f"Book title: '{book.title}' "
+                      f"is now returned by {user.name}"
+                      f"to the library")
+                book.available = True
+                book.borrower = user.name
+                user.borrowed_books.remvoe(book.title)
+        else:
+            print(f"Sorry, {user.name} does not have {book.title}")
+
+
+# User menu
+new_action = True
+while new_action:
+    print("1. Lend a book")
+    print("2. Return a book")
+    print("3. Add a user")
+    print("4. Add a book")
+    print("5. Exit")
+
+    choice = input("\nWHat would you like to do? - enter a number: ")
+    if choice == "1":
+        lend_book()
+    elif choice == "2":
+        return_book()
+    elif choice == "3":
+        add_user()
+    elif choice == "4":
+        add_book()
+    elif choice == "5":
+        print("Goodbye")
+        new_action = False
+    else:
+        print("\n*** That was not a valid choice ***\n")
+
+
 #  Main routine
 book_list = []
 user_list = []
@@ -121,7 +166,13 @@ User("Susan", "1011 Binary Rd")
 User("Paul", "25 Appletree Dr")
 User("Mary", "8 Moon Cres")
 
-find_book()
+
+lend_book()
+print("\n####################\n")
+return_book()
+
+
+#find_book()
 # add_book()
 # print_info()
 # add_user()
